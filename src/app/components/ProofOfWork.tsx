@@ -12,7 +12,7 @@ export function ProofOfWork() {
       location: 'Dubai',
     },
     {
-      keyword: 'Best Website Development Specialist in Dubai',
+      keyword: 'Best Digital Marketing Specialist in Dubai',
       image: seoImage2,
       rank: '#1',
       location: 'Dubai',
