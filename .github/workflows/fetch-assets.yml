@@ -1,47 +1,29 @@
-name: fetch-pdf-assets
+name: check-websites
 on:
   push:
     branches: [pdf-assets]
-    paths: [pdf-assets/urls.txt, pdf-assets/sites.txt, .github/workflows/fetch-assets.yml]
+    paths: [pdf-assets/check.txt, .github/workflows/fetch-assets.yml]
 permissions:
   contents: write
 jobs:
-  fetch:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download images
+      - name: Check and screenshot
         run: |
-          rm -rf pdf-assets/img pdf-assets/map.txt; mkdir -p pdf-assets/img
-          i=0
+          rm -rf pdf-assets/check; mkdir -p pdf-assets/check; i=0
           while IFS= read -r url; do
             [ -z "$url" ] && continue
-            i=$((i+1)); n=$(printf '%02d' $i)
-            if curl -fsSL "$url" -o "pdf-assets/img/$n.bin"; then echo "$n $url" >> pdf-assets/map.txt; else echo "$n FAILED $url" >> pdf-assets/map.txt; fi
-          done < pdf-assets/urls.txt
-      - name: Shrink images
-        run: |
-          pip install pillow
-          python3 - <<'PY'
-          from PIL import Image; import glob, os
-          for f in glob.glob('pdf-assets/img/*.bin'):
-              try:
-                  im=Image.open(f); im=im.convert('RGB'); im.thumbnail((1600,1600)); im.save(f[:-4]+'.jpg',quality=85)
-              except Exception as e: print('ERR',f,e)
-              os.remove(f)
-          PY
-      - name: Screenshot live websites
-        run: |
-          mkdir -p pdf-assets/sites; i=0
-          while IFS= read -r url; do
-            [ -z "$url" ] && continue
-            i=$((i+1)); n=$(printf 's%02d' $i)
-            timeout 90 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --virtual-time-budget=15000 --screenshot="pdf-assets/sites/$n.png" "$url" && echo "$n $url" >> pdf-assets/map.txt || echo "$n FAILED $url" >> pdf-assets/map.txt
-          done < pdf-assets/sites.txt
+            i=$((i+1)); n=$(printf 'w%02d' $i)
+            out=$(curl -sSL -m 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124 Safari/537.36" -o /tmp/page.html -w '%{http_code} %{url_effective}' "$url" 2>&1 || true)
+            title=$(grep -o -i '<title[^>]*>[^<]*' /tmp/page.html 2>/dev/null | head -1 | sed 's/<[^>]*>//' | tr -d '\n' | cut -c1-120)
+            size=$(wc -c < /tmp/page.html 2>/dev/null || echo 0)
+            echo "$n | $url | $out | bytes=$size | title=$title" >> pdf-assets/check/report.txt
+            rm -f /tmp/page.html
+            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --virtual-time-budget=12000 --screenshot="pdf-assets/check/$n.png" "$url" >/dev/null 2>&1 || true
+          done < pdf-assets/check.txt
       - name: Commit
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add -A pdf-assets
-          git commit -m "Fetched PDF assets [skip ci]" || true
-          git push
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add -A pdf-assets; git commit -m "Website check [skip ci]" || true; git push
