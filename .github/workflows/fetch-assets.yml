@@ -1,0 +1,32 @@
+name: fetch-pdf-assets
+on:
+  push:
+    branches: [pdf-assets]
+    paths: [pdf-assets/urls.txt]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and shrink images
+        run: |
+          mkdir -p pdf-assets/img
+          i=0
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            i=$((i+1)); n=$(printf '%02d' $i)
+            if curl -fsSL "$url" -o /tmp/raw; then
+              convert /tmp/raw[0] -resize '1600x1600>' -quality 85 "pdf-assets/img/$n.jpg" && echo "$n $url" >> pdf-assets/map.txt
+            else
+              echo "$n FAILED $url" >> pdf-assets/map.txt
+            fi
+          done < pdf-assets/urls.txt
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add pdf-assets
+          git commit -m "Fetched PDF assets [skip ci]" || true
+          git push
