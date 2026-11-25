@@ -2,7 +2,7 @@ name: fetch-pdf-assets
 on:
   push:
     branches: [pdf-assets]
-    paths: [pdf-assets/urls.txt]
+    paths: [pdf-assets/urls.txt, pdf-assets/sites.txt, .github/workflows/fetch-assets.yml]
 permissions:
   contents: write
 jobs:
@@ -10,23 +10,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download and shrink images
+      - name: Download images
         run: |
-          mkdir -p pdf-assets/img
+          rm -rf pdf-assets/img pdf-assets/map.txt; mkdir -p pdf-assets/img
           i=0
           while IFS= read -r url; do
             [ -z "$url" ] && continue
             i=$((i+1)); n=$(printf '%02d' $i)
-            if curl -fsSL "$url" -o /tmp/raw; then
-              convert /tmp/raw[0] -resize '1600x1600>' -quality 85 "pdf-assets/img/$n.jpg" && echo "$n $url" >> pdf-assets/map.txt
-            else
-              echo "$n FAILED $url" >> pdf-assets/map.txt
-            fi
+            if curl -fsSL "$url" -o "pdf-assets/img/$n.bin"; then echo "$n $url" >> pdf-assets/map.txt; else echo "$n FAILED $url" >> pdf-assets/map.txt; fi
           done < pdf-assets/urls.txt
+      - name: Shrink images
+        run: |
+          pip install pillow
+          python3 - <<'PY'
+          from PIL import Image; import glob, os
+          for f in glob.glob('pdf-assets/img/*.bin'):
+              try:
+                  im=Image.open(f); im=im.convert('RGB'); im.thumbnail((1600,1600)); im.save(f[:-4]+'.jpg',quality=85)
+              except Exception as e: print('ERR',f,e)
+              os.remove(f)
+          PY
+      - name: Screenshot live websites
+        run: |
+          mkdir -p pdf-assets/sites; i=0
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            i=$((i+1)); n=$(printf 's%02d' $i)
+            timeout 90 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --virtual-time-budget=15000 --screenshot="pdf-assets/sites/$n.png" "$url" && echo "$n $url" >> pdf-assets/map.txt || echo "$n FAILED $url" >> pdf-assets/map.txt
+          done < pdf-assets/sites.txt
       - name: Commit
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add pdf-assets
+          git add -A pdf-assets
           git commit -m "Fetched PDF assets [skip ci]" || true
           git push
