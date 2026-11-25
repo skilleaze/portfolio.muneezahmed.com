@@ -1,31 +1,17 @@
-name: check-websites
+name: shoot-whatseaze
 on:
   push:
     branches: [pdf-assets]
-    paths: [pdf-assets/check.txt, .github/workflows/fetch-assets.yml]
+    paths: [pdf-assets/shoot.py, .github/workflows/fetch-assets.yml]
 permissions:
   contents: write
 jobs:
-  check:
+  shoot:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check and screenshot
-        run: |
-          rm -rf pdf-assets/check; mkdir -p pdf-assets/check; i=0
-          while IFS= read -r url; do
-            [ -z "$url" ] && continue
-            i=$((i+1)); n=$(printf 'w%02d' $i)
-            out=$(curl -sSL -m 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124 Safari/537.36" -o /tmp/page.html -w '%{http_code} %{url_effective}' "$url" 2>&1 || true)
-            title=$(grep -o -i '<title[^>]*>[^<]*' /tmp/page.html 2>/dev/null | head -1 | sed 's/<[^>]*>//' | tr -d '\n' | cut -c1-120)
-            size=$(wc -c < /tmp/page.html 2>/dev/null || echo 0)
-            echo "$n | $url | $out | bytes=$size | title=$title" >> pdf-assets/check/report.txt
-            rm -f /tmp/page.html
-            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --virtual-time-budget=20000 --screenshot="pdf-assets/check/$n.png" "$url" >/dev/null 2>&1 || true
-            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,3200 --virtual-time-budget=20000 --screenshot="pdf-assets/check/${n}-tall.png" "$url" >/dev/null 2>&1 || true
-            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 --virtual-time-budget=15000 --screenshot="pdf-assets/check/${n}-m.png" "$url" >/dev/null 2>&1 || true
-          done < pdf-assets/check.txt
-      - name: Commit
-        run: |
+      - run: pip install playwright && python -m playwright install --with-deps chromium
+      - run: mkdir -p pdf-assets/wz && python pdf-assets/shoot.py
+      - run: |
           git config user.name "github-actions"; git config user.email "actions@github.com"
-          git add -A pdf-assets; git commit -m "Website check [skip ci]" || true; git push
+          git add -A pdf-assets; git commit -m "WhatsEaze shots [skip ci]" || true; git push
