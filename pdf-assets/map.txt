@@ -1,7 +1,35 @@
-30 FAILED https://www.muneezahmed.com/_assets/v11/3bd0288ebea0699aacff531c34029e85dbae6ef8.png
-31 FAILED https://www.muneezahmed.com/_assets/v11/649e04e24b33dbb64fbd60c116228eb9e81b62cc.png
-32 FAILED https://www.muneezahmed.com/_assets/v11/79875908ca577de1dafcf4d0e1198a2a131ff37b.png
-33 FAILED https://www.muneezahmed.com/_assets/v11/8d5088a85da8e56a7745871eef09c187f59e63da.png
-34 FAILED https://www.muneezahmed.com/_assets/v11/a3bf2af6ca3e5464cfd4bbf2dced680ab7925755.png
-35 FAILED https://www.muneezahmed.com/_assets/v11/d0ca25868a7d2f375c40ca0174a55ff47180b5ed.png
-36 FAILED https://www.muneezahmed.com/_assets/v11/e9d412fc9fa8bafe7e70751e13853352bde9eed2.png
+01 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/44y/yt1/6v9/House%20of%20Jersey%202.png
+02 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/4o8/8ei/dpy/Lark%20Ellen%20Farm.png
+03 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/5ln/2zp/r4n/Gonow.png
+04 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/78p/fuv/db0/kayeandco.jpeg
+05 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/be1/d31/zuh/rmdy%20.png
+06 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/bnk/ciy/a1s/Jarvis%20Invest.png
+07 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/c9n/8ny/wdm/best%20performance%20marketing%20specialist.jpg
+08 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/fn3/10t/nry/Flavored%20PB%20Co.png
+09 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/fqc/5k7/86f/Be%20Active%20Wear.png
+10 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/hpt/bs2/92i/ACEIT%20Traning.png
+11 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/i03/q99/vdr/real%20estate%20marketing%20specialist%20in%20dubai-muneez%20ahmed.jpg
+12 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/kuf/9yd/aiy/Best%20Branding%20service%20in%20Calicut%2Ckerala%7C%20Create%20Impact%20Brand%20....jpg
+13 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/mmv/qfb/4c0/Mighty%20Munch.png
+14 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/mtq/zub/rei/Sassind.png
+15 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/n2u/n58/07x/Inspire%20Me%20Home%20Decor.png
+16 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/nok/lti/n5e/House%20of%20Jersey.png
+17 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/qax/mv4/spy/Bearfruit%20Jewelry%20.png
+18 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/ry7/bgz/c54/Asain%20Gold%20%26%20Diamonds.png
+19 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/s8v/elh/ssl/wholsale%20office%20chair-alwafa%20furniture.jpg
+20 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/szb/da4/dbk/House%20of%20Nutrition.png
+21 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/tbi/obd/7kj/City%20alpha%20Dental%20care.png
+22 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/tzb/t9a/wst/caterersuae.ae%20GOOGLE%20AND%20META.jpg
+23 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/u2l/d25/ydw/Calidry.png
+24 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/ugt/pg9/xgo/best%20digital%20marketing%20specialist%20in%20dubai-muneez%20ahmed.jpg
+25 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/uy6/umi/dib/school%20furniture%20supplier%20in%20uae%20alwafa%20furniture.jpg
+26 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/wyj/cx3/aco/Dream%20Diamonds%20.png
+27 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/x5n/28e/ear/best%20corporate%20gifts%20service%20in%20kerala.jpg
+28 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/x6x/qx5/ri3/Majid%20uniqueness.png
+29 https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/pxl5qk0l/zty/75u/l00/Vythiri%20Mist.png
+s01 https://neveenhaddad.ae
+s02 https://skilleaze.com
+s03 https://theliondubai.com
+s04 https://thedreampalette.com
+s05 https://dubai.seventytworealestate.com
+s06 https://adminempire.ae
