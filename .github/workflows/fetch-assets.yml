@@ -21,7 +21,9 @@ jobs:
             size=$(wc -c < /tmp/page.html 2>/dev/null || echo 0)
             echo "$n | $url | $out | bytes=$size | title=$title" >> pdf-assets/check/report.txt
             rm -f /tmp/page.html
-            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --virtual-time-budget=12000 --screenshot="pdf-assets/check/$n.png" "$url" >/dev/null 2>&1 || true
+            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --virtual-time-budget=20000 --screenshot="pdf-assets/check/$n.png" "$url" >/dev/null 2>&1 || true
+            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,3200 --virtual-time-budget=20000 --screenshot="pdf-assets/check/${n}-tall.png" "$url" >/dev/null 2>&1 || true
+            timeout 60 google-chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 --virtual-time-budget=15000 --screenshot="pdf-assets/check/${n}-m.png" "$url" >/dev/null 2>&1 || true
           done < pdf-assets/check.txt
       - name: Commit
         run: |
