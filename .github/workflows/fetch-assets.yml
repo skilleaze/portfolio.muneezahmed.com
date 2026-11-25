@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install playwright && python -m playwright install --with-deps chromium
-      - run: mkdir -p pdf-assets/wz && python pdf-assets/shoot.py
+      - run: mkdir -p pdf-assets/ws && python pdf-assets/shoot.py
       - run: |
           git config user.name "github-actions"; git config user.email "actions@github.com"
-          git add -A pdf-assets; git commit -m "WhatsEaze shots [skip ci]" || true; git push
+          git add -A pdf-assets; git commit -m "Site shots [skip ci]" || true; git push
