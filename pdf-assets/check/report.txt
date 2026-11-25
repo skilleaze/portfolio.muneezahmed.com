@@ -1,14 +1,12 @@
-w01 | https://beactivewear.com.au | 403 https://beactivewear.com.au/ | bytes=12917 | title=Verifying your connection...
-w02 | https://bearfruitjewelry.com | 403 https://bearfruitjewelry.com/ | bytes=12918 | title=Verifying your connection...
-w03 | https://dreamdiamonds.com.au | 403 https://dreamdiamonds.com.au/ | bytes=12918 | title=Verifying your connection...
-w04 | https://inspiremehomedecor.com | 403 https://www.inspiremehomedecor.com/ | bytes=5512 | title=Just a moment...
-w05 | https://shop.mightymunch.com | 403 https://shop.mightymunch.com/ | bytes=12918 | title=Verifying your connection...
-w06 | https://rmdy.com | 403 https://rmdy.com/ | bytes=12906 | title=Verifying your connection...
-w07 | https://neveenhaddad.ae | curl: (6) Could not resolve host: neveenhaddad.ae
-000 https://neveenhaddad.ae/ | bytes=0 | title=
-w08 | https://skilleaze.com | 200 https://www.skilleaze.com/ | bytes=147195 | title=Skilleaze | Professional CV Writing &amp; Career Services
-w09 | https://theliondubai.com | 200 https://www.theliondubai.com/ | bytes=7528 | title=Cihan Arslan | Founder & CEO of Seventy Two Real Estate
-w10 | https://thedreampalette.com | curl: (6) Could not resolve host: thedreampalette.com
-000 https://thedreampalette.com/ | bytes=0 | title=
-w11 | https://dubai.seventytworealestate.com | 200 https://dubai.seventytworealestate.com/ | bytes=7804 | title=Seventy Two Real Estate – Best Real Estate Agency in Dubai
-w12 | https://adminempire.ae | 200 https://www.adminempire.ae/ | bytes=7811 | title=Admin Empire by Hazel Saquin | Real Estate Training Dubai
+w01 | https://skilleaze.com | 200 https://www.skilleaze.com/ | bytes=147195 | title=Skilleaze | Professional CV Writing &amp; Career Services
+w02 | https://whatseaze.com | 200 https://www.whatseaze.com/ | bytes=65020 | title=WhatsEaze — your WhatsApp, answered
+w03 | https://liveeze.com | 200 https://www.liveeze.com/ | bytes=25183 | title=LIVEEZE · Interior Architecture, Design &amp; Build
+w04 | https://shopieeze.com | curl: (6) Could not resolve host: shopieeze.com
+000 https://shopieeze.com/ | bytes=0 | title=
+w05 | https://shopiez.com | 200 https://shopiez.com/ | bytes=114 | title=
+w06 | http://qyrahabayas.com | curl: (35) TLS connect error: error:0A000126:SSL routines::unexpected eof while reading
+308 https://qyrahabayas.com/ | bytes=0 | title=
+w07 | https://qyrah-brandbook.figma.site/ | 200 https://qyrah-brandbook.figma.site/ | bytes=947 | title=QYRAH BRAND BOOK
+w08 | https://brandeeze.com | 200 https://brandeeze.com/ | bytes=46108 | title=Brandeeze | Brands people choose
+w09 | https://strattiq.com | 200 https://www.strattiq.com/ | bytes=512503 | title=STRATTIQ · Complex business, made simple
+w10 | https://bbleads.com | 200 https://bbleads.com/ | bytes=87329 | title=bbleads.com
